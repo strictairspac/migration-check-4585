@@ -1,6 +1,6 @@
 import math
 from pydantic import BaseModel,Field,model_validator
-from src.services.migration import validate_rules
+from src.services.migration import validate_rules,validate_unit_rules
 class Login(BaseModel):email:str;password:str
 class BatchInput(BaseModel):
  name:str=Field(min_length=2,max_length=120)
@@ -18,10 +18,15 @@ class MappingInput(BaseModel):
  name:str=Field(min_length=2,max_length=120)
  batch_id:int
  rules:list[dict]
+ unit_rules:list[dict]=Field(default=list)
  chunk_size:int=Field(default=50,ge=1,le=500)
  note:str=Field(default='',max_length=500)
  @model_validator(mode='after')
- def rules_valid(self):validate_rules(self.rules);return self
+ def rules_valid(self):
+  validate_rules(self.rules)
+  # 归一化：系数/区间统一存为字符串，拒绝非法换算规则
+  self.unit_rules=validate_unit_rules(self.unit_rules)
+  return self
 class RunInput(BaseModel):
  name:str=Field(min_length=2,max_length=120)
  mapping_id:int

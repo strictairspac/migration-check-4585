@@ -6,5 +6,6 @@ class Mapping(Base):
  name=Column(String(120),unique=True,nullable=False)
  batch_id=Column(Integer,ForeignKey('batches.id'),nullable=False)
  rules=Column(JSON,nullable=False)
+ unit_rules=Column(JSON,nullable=False,default=list)
  chunk_size=Column(Integer,nullable=False,default=50)
  note=Column(String(500),nullable=False,default='')

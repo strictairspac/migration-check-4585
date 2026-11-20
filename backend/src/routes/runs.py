@@ -18,6 +18,9 @@ def cancel(item_id:int,u=Depends(writer)):
  r=runs.cancel(item_id);log(u.email,'run.cancel',str(item_id));return r
 @router.get('/runs/{item_id}/targets')
 def targets(item_id:int,u=Depends(current)):return runs.targets(item_id)
+@router.get('/runs/{item_id}/review')
+def review(item_id:int,source_unit:str|None=None,target_unit:str|None=None,reason:str|None=None,limit:int=200,offset:int=0,u=Depends(current)):
+ return runs.review(item_id,source_unit=source_unit,target_unit=target_unit,reason=reason,limit=min(max(limit,1),500),offset=max(offset,0))
 @router.get('/runs/{item_id}/backup')
 def backup(item_id:int,u=Depends(current)):
  return Response(json.dumps(runs.backup(item_id),ensure_ascii=False,indent=2),media_type='application/json',headers={'Content-Disposition':f'attachment; filename="backup-{item_id}.json"'})

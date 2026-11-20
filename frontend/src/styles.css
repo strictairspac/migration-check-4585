@@ -7,3 +7,15 @@
 .evidence p{overflow-wrap:anywhere}
 
 .workspace{background-image:none}.sidebar{background:oklch(27% .035 155)}.sidebar nav button.active{background:oklch(35% .04 155);border-color:oklch(79% .07 90)}.login-art{background:oklch(30% .045 155)}.login-art p{color:oklch(84% .035 115)}.postal-mark{border:3px double oklch(80% .04 100);color:oklch(85% .04 100);display:inline-block;padding:22px 35px;transform:rotate(-7deg);font-size:15px;line-height:2;letter-spacing:4px;margin-top:30px}.postal-mark b{font-weight:400;font-size:22px;display:block}.postal-mark span{font-family:'Space Mono',monospace;font-size:10px;letter-spacing:2px}.page-title{border-bottom:1px dashed var(--line);margin-bottom:25px}.evidence pre{background:oklch(89% .018 110)}.actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px}.status.cancelled{background:oklch(85% .02 90);color:var(--muted)}.evidence table{table-layout:fixed}.evidence td,.evidence th{overflow-wrap:anywhere}.evidence td:first-child{width:15%}.evidence td details pre{max-height:300px}.split code{overflow-wrap:anywhere}.evidence p{overflow-wrap:anywhere}#target-data{max-height:300px}.evidence button[data-restore]{margin-top:15px}@media(max-width:767px){.postal-mark{display:none}}
+
+
+/* Unit-conversion review: filter bar, original/unified comparison, pager. */
+.review-filters{display:flex;flex-wrap:wrap;gap:14px;align-items:flex-end;background:var(--light);border:1px solid var(--line);border-left:3px solid var(--rust);padding:16px 18px;margin-bottom:26px}
+.review-filters label{margin:0;min-width:200px;flex:1}
+.review-filters select{margin-top:8px}
+.form-hint{display:block;line-height:1.8;margin-top:8px;color:var(--muted)}
+#review-accepted td:nth-child(3) b,#review-accepted td:nth-child(4) b{font-family:'Space Mono',monospace;font-size:13px}
+.pager{display:flex;gap:6px;flex-wrap:wrap;margin-top:10px}
+.pager button{padding:6px 11px;font-size:11px}
+.pager button.active{background:var(--rust);color:var(--light)}
+.pager-note{font-family:'Space Mono',monospace;font-size:10px;color:var(--muted);margin-top:12px}
